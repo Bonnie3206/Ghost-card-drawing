@@ -11,6 +11,9 @@
 		434653362608D4FF00AFF53A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434653352608D4FF00AFF53A /* ContentView.swift */; };
 		434653382608D50200AFF53A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434653372608D50200AFF53A /* Assets.xcassets */; };
 		4346533B2608D50200AFF53A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4346533A2608D50200AFF53A /* Preview Assets.xcassets */; };
+		434653442608D5AE00AFF53A /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434653432608D5AE00AFF53A /* SwiftUIView.swift */; };
+		4346534D2608FF5E00AFF53A /* loseGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4346534C2608FF5E00AFF53A /* loseGameView.swift */; };
+		434653502608FF6F00AFF53A /* winGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4346534F2608FF6F00AFF53A /* winGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		434653372608D50200AFF53A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4346533A2608D50200AFF53A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4346533C2608D50200AFF53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		434653432608D5AE00AFF53A /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		4346534C2608FF5E00AFF53A /* loseGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loseGameView.swift; sourceTree = "<group>"; };
+		4346534F2608FF6F00AFF53A /* winGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = winGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 			children = (
 				434653332608D4FF00AFF53A /* iOS_Hw2_2App.swift */,
 				434653352608D4FF00AFF53A /* ContentView.swift */,
+				4346534C2608FF5E00AFF53A /* loseGameView.swift */,
+				4346534F2608FF6F00AFF53A /* winGameView.swift */,
+				434653432608D5AE00AFF53A /* SwiftUIView.swift */,
 				434653372608D50200AFF53A /* Assets.xcassets */,
 				4346533C2608D50200AFF53A /* Info.plist */,
 				434653392608D50200AFF53A /* Preview Content */,
@@ -139,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				434653362608D4FF00AFF53A /* ContentView.swift in Sources */,
+				434653502608FF6F00AFF53A /* winGameView.swift in Sources */,
 				434653342608D4FF00AFF53A /* iOS_Hw2_2App.swift in Sources */,
+				434653442608D5AE00AFF53A /* SwiftUIView.swift in Sources */,
+				4346534D2608FF5E00AFF53A /* loseGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

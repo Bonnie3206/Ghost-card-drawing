@@ -74,8 +74,16 @@ struct ContentView2: View {
     @State var bankruptcy = false
     var body: some View {
         ZStack{
-            Image("hw2背景")
+            ZStack{
+                Image("hw2背景")
                 .opacity(0.6)
+                Image("背景3")
+                    .resizable()
+                   .frame(width:100, height: 90)
+                   .cornerRadius(90.0)
+                   .shadow(radius: 15 )
+                    .offset(x:350.0, y:-145.0)
+            }
             VStack{
                 HStack{
                     HStack{

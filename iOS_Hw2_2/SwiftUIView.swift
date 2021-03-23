@@ -16,16 +16,26 @@ struct SwiftUIView: View {
             Image("撲克牌開頭")
                 .resizable()
                 .scaledToFit()
-            Button(action: {showGamePage = true
-                card.shuffle()
-                licensing()
-                clean()
-            },label: {Text("start").font(.largeTitle)
+            
+            VStack{
                 
-            })
-            .sheet(isPresented: $showGamePage, content:{
-                ContentView()
-            })
+                Link("規則", destination: URL(string: "https://sites.google.com/site/pokerking1313/home/chou-gui-pai")!)
+                    .font(.largeTitle)
+                
+                Button(action: {showGamePage = true
+                    users = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+                    card.shuffle()
+                    licensing()
+                    clean()
+                },label: {Text("開始玩囉").font(.largeTitle)
+                    
+                })
+                .sheet(isPresented: $showGamePage, content:{
+                    ContentView2()
+                })
+                
+            }
+            
         }
         
     }

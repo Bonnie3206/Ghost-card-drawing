@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 
 //建立牌
@@ -55,8 +56,13 @@ func clean(){
     }
     
 }
-
+var moneyBox = 1500
+func restart(){
+    moneyBox = 1500
+}
 struct ContentView2: View {
+    
+    @State var alreadyPlay = false
     @State var turns = 0
     @State var fights_0 = 01
     @State var fights_1 = 12
@@ -64,184 +70,235 @@ struct ContentView2: View {
     @State var winTheGame = false
     @State var loseTheGame = false
     @State var showFirstPage = false
-    @State var money = 1500
-    
+    @State var money = moneyBox
+    @State var bankruptcy = false
     var body: some View {
         ZStack{
             Image("hw2背景")
                 .opacity(0.6)
             VStack{
-                VStack{
-                    Image("錢")
-                        .resizable()
-                        .background(Color.white)
-                        .frame(width: 70, height:70)
-                        .scaledToFit()
-                        .border(Color.black, width: 1)
-                        .offset(x: -20, y: 0)
-                        .padding(.trailing, -40)
-                    Text("籌碼"+String(money))
-                        
-                }
                 HStack{
-                    
-                    ForEach(0..<users[2].count, id: \.self)//myCard
-                    {
-                        index in
-                        
-                            Image("back")
+                    HStack{
+                        Image("錢")
                             .resizable()
                             .background(Color.white)
                             .frame(width: 70, height:70)
                             .scaledToFit()
                             .border(Color.black, width: 1)
-                            .offset(x: index > 0 ? -20 : 0, y: 0)
-                            .padding(.trailing, index > 0 ? -40 : 0)
+                            .offset(x: 20, y: 0)
+                            .padding(.trailing, -40)
+                        Text("籌碼"+String(money)).font(.largeTitle).offset(x: 60, y: 0)
+                        
+                    }
+                    Spacer()
+                }
+                HStack{
+                    Text("電腦2(抽玩家)")
+                        .offset(x: -40.0, y: 1)
+                    HStack{
+                        
+                        ForEach(0..<users[2].count, id: \.self)//myCard
+                        {
+                            index in
+                            
+                                Image("back")
+                                .resizable()
+                                .background(Color.white)
+                                .frame(width: 70, height:70)
+                                .scaledToFit()
+                                .border(Color.black, width: 1)
+                                .offset(x: index > 0 ? -20 : 0, y: 0)
+                                .padding(.trailing, index > 0 ? -40 : 0)
+                    
+                            
+                        }
+                    }
+                    
+                }
                 
-                        
+                HStack{
+                    HStack{
+                        Text("電腦1(抽電腦2)")
+                            .offset(x: -40.0, y: 1)
+                        ForEach(0..<users[1].count, id: \.self)//myCard
+                        {
+                            index in
+                            
+                            Button(action:
+                            {
+                                if turns == 0{
+                                    
+                                    users[0].append(users[1][index])
+                                    users[1].remove(at:index)
+                                    
+                                    if  String(users[1].count) == "0" {
+                                        loseTheGame = true
+                                        money -= 2000
+                                        moneyBox = money
+                                        if money < 0{
+                                            bankruptcy = true
+                                        }
+                                    }else{
+                                        clean()
+                                        if users[0].isEmpty{
+                                            winTheGame = true
+                                            money += 2000
+                                            moneyBox = money
+                                            if money < 0{
+                                                bankruptcy = true
+                                            }
+                                    }
+                                    }
+                                    turns = 1
+                                }
+                                if turns == 1{
+                                    var number = Int.random(in: 0...(users[2].count-1))
+                                    
+                                    users[1].append(users[2][number])
+                                    users[2].remove(at:number)
+                                    
+                                    if String(users[2].count) == "0" {
+                                        loseTheGame = true
+                                        money -= 2000
+                                        moneyBox = money
+                                        if money < 0{
+                                            bankruptcy = true
+                                        }
+                                    }else{
+                                        clean()
+                                        if String(users[1].count) == "0" {
+                                            loseTheGame = true
+                                            money -= 2000
+                                            moneyBox = money
+                                            if money < 0{
+                                                bankruptcy = true
+                                            }
+                                        }
+                                    }
+                                    
+                                    turns = 2
+                                    
+                                }
+                                if turns == 2{
+                                    var number = Int.random(in: 0...users[0].count-1)
+                
+                                    users[2].append(users[0][number])
+                                    users[0].remove(at:number)
+                                    
+                                    if users[0].isEmpty{
+                                        winTheGame = true
+                                        money += 2000
+                                        moneyBox = money
+                                        if money < 0{
+                                            bankruptcy = true
+                                        }
+                                    }else{
+                                        clean()
+                                        if  String(users[2].count) == "0" {
+                                            loseTheGame = true
+                                            money -= 2000
+                                            moneyBox = money
+                                            if money < 0{
+                                                bankruptcy = true
+                                            }
+                                        }
+                                    }
+                                    
+                                    turns = 0
+                                }
+                                
+                            }, label:
+                            {
+                                Image("back")
+                                .resizable()
+                                .background(Color.white)
+                                .frame(width: 70, height:70)
+                                .scaledToFit()
+                                .border(Color.black, width: 1)
+                                .offset(x: index > 0 ? -20 : 0, y: 0)
+                                .padding(.trailing, index > 0 ? -40 : 0)
+                            })
+                            
+                        }
                     }
+                    
+                    
                 }
                 HStack{
-                    
-                    ForEach(0..<users[1].count, id: \.self)//myCard
+                    HStack{
+                        Text("玩家(抽電腦1)")
+                            .offset(x: -40.0, y: 1)
+                        ForEach(0..<users[0].count, id: \.self)//myCard
+                        {
+                            index in
+                            Button(action:
+                            {
+                                
+                                
+                                
+                            }, label:
+                            {
+                                Image(String(users[0][index]))
+                                .resizable()
+                                .background(Color.white)
+                                .frame(width: 70, height:70)
+                                .scaledToFit()
+                                .border(Color.black, width: 1)
+                                .offset(x: index > 0 ? -20 : 0, y: 0)
+                                .padding(.trailing, index > 0 ? -40 : 0)
+                            })
+                            
+                        }
+                    Button(action:
                     {
-                        index in
+                        if turns == 2{
+                            turns = 0
+                        }else{
+                            turns += 1
+                        }
+                        if turns == 1{
+                            var number = Int.random(in: 0...users[2].count-1)
+                            users[1].append(users[2][number])
+                            users[2].remove(at:number)
+                            clean()
+                        }
+                        if turns == 2{
+                            var number = Int.random(in: 0...users[0].count-1)
+                            users[2].append(users[0][number])
+                            users[0].remove(at:number)
+                            clean()
+                        }
                         
-                        Button(action:
-                        {
-                            if turns == 0{
-                                
-                                users[0].append(users[1][index])
-                                users[1].remove(at:index)
-                                
-                                if  String(users[1].count) == "0" {
-                                    loseTheGame = true
-                                    money -= 2000
-                                }else{
-                                    clean()
-                                }
-                                if users[0].isEmpty{
-                                    winTheGame = true
-                                    money += 2000
-                                }else{
-                                    clean()
-                                }
-                                turns = 1
-                                
-                            }
-                            if turns == 1{
-                                var number = Int.random(in: 0...(users[2].count-1))
-                                
-                                users[1].append(users[2][number])
-                                users[2].remove(at:number)
-                                
-                                if String(users[2].count) == "0" {
-                                    loseTheGame = true
-                                    money -= 2000
-                                }else{
-                                    clean()
-                                }
-                                if String(users[1].count) == "0" {
-                                    loseTheGame = true
-                                    money -= 2000
-                                }
-                                turns = 2
-                                
-                            }
-                            if turns == 2{
-                                var number = Int.random(in: 0...users[0].count-1)
-            
-                                users[2].append(users[0][number])
-                                users[0].remove(at:number)
-                                
-                                if users[0].isEmpty{
-                                    winTheGame = true
-                                    money += 2000
-                                }else{
-                                    clean()
-                                }
-                                if  String(users[2].count) == "0" {
-                                    loseTheGame = true
-                                    money -= 2000
-                                }
-                                turns = 0
-                            }
-                            
-                        }, label:
-                        {
-                            Image("back")
-                            .resizable()
-                            .background(Color.white)
-                            .frame(width: 70, height:70)
-                            .scaledToFit()
-                            .border(Color.black, width: 1)
-                            .offset(x: index > 0 ? -20 : 0, y: 0)
-                            .padding(.trailing, index > 0 ? -40 : 0)
-                        })
-                        
-                    }
-                }
-                HStack{
-                    
-                    ForEach(0..<users[0].count, id: \.self)//myCard
+                    }, label:
                     {
-                        index in
-                        Button(action:
-                        {
-                            
-                            
-                            
-                        }, label:
-                        {
-                            Image(String(users[0][index]))
-                            .resizable()
-                            .background(Color.white)
-                            .frame(width: 70, height:70)
-                            .scaledToFit()
-                            .border(Color.black, width: 1)
-                            .offset(x: index > 0 ? -20 : 0, y: 0)
-                            .padding(.trailing, index > 0 ? -40 : 0)
-                        })
-                        
-                    }
-                Button(action:
-                {
-                    if turns == 2{
-                        turns = 0
-                    }else{
-                        turns += 1
-                    }
-                    if turns == 1{
-                        var number = Int.random(in: 0...users[2].count-1)
-                        users[1].append(users[2][number])
-                        users[2].remove(at:number)
-                        clean()
-                    }
-                    if turns == 2{
-                        var number = Int.random(in: 0...users[0].count-1)
-                        users[2].append(users[0][number])
-                        users[0].remove(at:number)
-                        clean()
+                        Text(String(turns))
+                    })
                     }
                     
-                }, label:
-                {
-                    Text("目前輪"+String(turns)+"換下一個")
-                })
+                    
+                    
                 }
+                
                 Button(action: {showFirstPage = true
-                
-                },label: {Text("回到首頁").font(.largeTitle)
                     
-                })
-                .sheet(isPresented: $showFirstPage, content:{
-                    SwiftUIView()
-                })
-            }.onAppear(perform: {})
+            
+            },label: {Text("回到首頁").font(.largeTitle)
+                
+            })
+            .sheet(isPresented: $showFirstPage, content:{
+                SwiftUIView()
+            })
+                    
+                
+                    
+            }
+                
+        }
 //???????EmptyView()
             EmptyView().sheet(isPresented: $winTheGame, content:{winGameView(winTheGame:$winTheGame)})
             EmptyView().sheet(isPresented: $loseTheGame, content:{loseGameView(loseTheGame:$loseTheGame)})
-        }
+            EmptyView().sheet(isPresented: $bankruptcy, content:{bankruptcyView(bankruptcy:$bankruptcy)})
+        
         
         
     }
@@ -249,6 +306,7 @@ struct ContentView2: View {
 
 struct ContentView2_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView2()
+        ContentView2().previewLayout(.fixed(width: 844, height: 390))
+            .previewDevice("iPhone 11")
     }
 }

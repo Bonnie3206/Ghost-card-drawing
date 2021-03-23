@@ -11,14 +11,23 @@ struct loseGameView: View {
     @Binding var loseTheGame : Bool
     var body: some View {
         ZStack{
-            Image("失敗")
-            Text("You lose!")
+            HStack{
+                VStack{
+                    Text("你輸囉！錢錢少2000")
+                    Text("回到首頁後，開始遊戲再玩一次吧")
+                }
+                Image("失敗")
+                
+                .resizable()
+                .frame(width: 400, height: 300)
+                
+            }
         }.overlay(
             Button(action: {loseTheGame = false}
                    , label:{Image("叉叉")
                     .resizable()
                     .frame(width: 50, height: 50)
-                    .padding(60)
+                    .padding(-10)
                    } ),alignment: .topTrailing
         )
     }

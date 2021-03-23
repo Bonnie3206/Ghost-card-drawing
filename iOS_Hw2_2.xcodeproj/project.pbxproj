@@ -15,6 +15,8 @@
 		4346534D2608FF5E00AFF53A /* loseGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4346534C2608FF5E00AFF53A /* loseGameView.swift */; };
 		434653502608FF6F00AFF53A /* winGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4346534F2608FF6F00AFF53A /* winGameView.swift */; };
 		43465353260907F200AFF53A /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43465352260907F200AFF53A /* ContentView2.swift */; };
+		4346535A260992BF00AFF53A /* bankruptcyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43465359260992BF00AFF53A /* bankruptcyView.swift */; };
+		4346536026099E7E00AFF53A /* PuiPui.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4346535F26099E7E00AFF53A /* PuiPui.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4346534C2608FF5E00AFF53A /* loseGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loseGameView.swift; sourceTree = "<group>"; };
 		4346534F2608FF6F00AFF53A /* winGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = winGameView.swift; sourceTree = "<group>"; };
 		43465352260907F200AFF53A /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
+		43465359260992BF00AFF53A /* bankruptcyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bankruptcyView.swift; sourceTree = "<group>"; };
+		4346535F26099E7E00AFF53A /* PuiPui.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PuiPui.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,9 @@
 				434653332608D4FF00AFF53A /* iOS_Hw2_2App.swift */,
 				434653352608D4FF00AFF53A /* ContentView.swift */,
 				43465352260907F200AFF53A /* ContentView2.swift */,
+				43465359260992BF00AFF53A /* bankruptcyView.swift */,
 				4346534C2608FF5E00AFF53A /* loseGameView.swift */,
+				4346535F26099E7E00AFF53A /* PuiPui.mp3 */,
 				4346534F2608FF6F00AFF53A /* winGameView.swift */,
 				434653432608D5AE00AFF53A /* SwiftUIView.swift */,
 				434653372608D50200AFF53A /* Assets.xcassets */,
@@ -138,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4346536026099E7E00AFF53A /* PuiPui.mp3 in Resources */,
 				4346533B2608D50200AFF53A /* Preview Assets.xcassets in Resources */,
 				434653382608D50200AFF53A /* Assets.xcassets in Resources */,
 			);
@@ -153,6 +160,7 @@
 				434653362608D4FF00AFF53A /* ContentView.swift in Sources */,
 				434653502608FF6F00AFF53A /* winGameView.swift in Sources */,
 				434653342608D4FF00AFF53A /* iOS_Hw2_2App.swift in Sources */,
+				4346535A260992BF00AFF53A /* bankruptcyView.swift in Sources */,
 				43465353260907F200AFF53A /* ContentView2.swift in Sources */,
 				434653442608D5AE00AFF53A /* SwiftUIView.swift in Sources */,
 				4346534D2608FF5E00AFF53A /* loseGameView.swift in Sources */,

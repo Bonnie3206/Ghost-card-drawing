@@ -48,7 +48,7 @@
 		434653272608D4FF00AFF53A = {
 			isa = PBXGroup;
 			children = (
-				434653322608D4FF00AFF53A /* iOS_Hw2_2 */,
+				434653322608D4FF00AFF53A /* ghost-card-drawing */,
 				434653312608D4FF00AFF53A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		434653322608D4FF00AFF53A /* iOS_Hw2_2 */ = {
+		434653322608D4FF00AFF53A /* ghost-card-drawing */ = {
 			isa = PBXGroup;
 			children = (
 				434653332608D4FF00AFF53A /* iOS_Hw2_2App.swift */,
@@ -76,7 +76,7 @@
 				4346533C2608D50200AFF53A /* Info.plist */,
 				434653392608D50200AFF53A /* Preview Content */,
 			);
-			path = iOS_Hw2_2;
+			path = "ghost-card-drawing";
 			sourceTree = "<group>";
 		};
 		434653392608D50200AFF53A /* Preview Content */ = {
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4346532B2608D4FF00AFF53A /* Build configuration list for PBXProject "iOS_Hw2_2" */;
+			buildConfigurationList = 4346532B2608D4FF00AFF53A /* Build configuration list for PBXProject "ghost-card-drawing" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -292,10 +292,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iOS_Hw2_2/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ghost-card-drawing/Preview Content\"";
 				DEVELOPMENT_TEAM = J886232PB6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS_Hw2_2/Info.plist;
+				INFOPLIST_FILE = "ghost-card-drawing/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,10 +314,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iOS_Hw2_2/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ghost-card-drawing/Preview Content\"";
 				DEVELOPMENT_TEAM = J886232PB6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS_Hw2_2/Info.plist;
+				INFOPLIST_FILE = "ghost-card-drawing/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -333,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4346532B2608D4FF00AFF53A /* Build configuration list for PBXProject "iOS_Hw2_2" */ = {
+		4346532B2608D4FF00AFF53A /* Build configuration list for PBXProject "ghost-card-drawing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4346533D2608D50200AFF53A /* Debug */,
